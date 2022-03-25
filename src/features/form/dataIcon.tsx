@@ -1,4 +1,22 @@
 
+
+export interface User {
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  address: string;
+  hours: number;
+  hourlyWage: string;
+  salary: string;
+  company: string;
+  phone: string;
+  city: string;
+}
+
+type Users = User[];
+
+
 const users = [
     {
       id: 1,

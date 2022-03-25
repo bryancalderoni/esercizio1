@@ -1,3 +1,15 @@
+//Devo implementare l'interfaccia altrimenti non tipizzandolo causa errore
+
+export interface UserData {
+  label: string;
+  input: string;
+  iconClassUser: string;
+  stringName: string;
+}
+
+type DataUser = UserData[];
+
+
 const dataUser = [
   {
     label: "Nome",

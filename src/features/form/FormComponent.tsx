@@ -1,9 +1,15 @@
 import FieldInput from "../../shared/design/fieldInput/FieldInput";
 import TitleSection from "../../shared/design/titleSection/TitleSection";
-import dataUser from "./dataUser";
+import dataUser, { UserData } from "./dataUser";
 import dataJob from "./dataJob";
 import users from "./dataIcon";
 import { useState } from "react";
+
+
+//interfaccia per ovviare al problema di tipizzazione
+interface IIndexable {
+  [key: string]: any;
+}
 
 const FormComponent: React.FC = () => {
   const [data, setData] = useState([users]);
@@ -50,7 +56,12 @@ const FormComponent: React.FC = () => {
 
         {/* ⁄provo piu modi di mappare l'array users[0] */}
         {/* {Object.keys(users[0]).map((ele,index) => ( */}
-        {dataUser.map((ele, index) => (
+
+
+
+        {/* CON questo qui di seguito mi da il problema di tipizzazione */}
+
+        {/* {dataUser.map((ele, index) => (
           <FieldInput
             key={ele.input}
             input={users[selected][ele.stringName]}
@@ -60,8 +71,23 @@ const FormComponent: React.FC = () => {
             // classField={
             //   ele.id !== dataUser.length - 1 ? ["col-lg-4"] : ["col-lg-8"]
             // }
+          ></FieldInput> */}
+{dataUser.map((ele: UserData) => {
+            const {stringName, label, iconClassUser} = ele;
+            const user: IIndexable = users[selected];
+            const input = user[stringName] as string;
+          return <FieldInput
+            key={ele.input}
+            input={input}
+            // input={users[selected]['name']}
+            label={label}
+            icon={iconClassUser}
+            // classField={
+            //   ele.id !== dataUser.length - 1 ? ["col-lg-4"] : ["col-lg-8"]
+            // }
           ></FieldInput>
-        ))}
+
+})}
       </div>
       {/* Ripeto l'operazione per eventuali altri form, i componenti sono composti più nel dettaglio così da renderli riutilizzabili */}
       <TitleSection title="Dati lavoro" icon="fa fa-briefcase" />
