@@ -2,7 +2,7 @@ import React from "react";
 
 // Creo la mia interfaccia con cui posso andare a tipizzare tutti miei attributi
 interface FieldInputProp {
-  input?: string;
+  input?: any;
   label?: string;
   icon?: string;
   classField?: string[];
@@ -16,7 +16,7 @@ const FieldInput: React.FC<FieldInputProp> = ({
   icon = "fa fa-question",
   classField = [],
 }) => {
-  const fieldClass = ["my-3", ...classField];
+  const fieldClass = ["my-3 col-4", ...classField];
   return (
     
     <div className={fieldClass.join(" ")}>
