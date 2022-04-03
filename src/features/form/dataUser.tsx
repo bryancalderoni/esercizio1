@@ -2,38 +2,31 @@
 
 export interface UserData {
   label: string;
-  input: string;
+
   iconClassUser: string;
   stringName: string;
 }
 
-type DataUser = UserData[];
-
-
 const dataUser = [
   {
     label: "Nome",
-    input: "Bryan",
     iconClassUser: "fa fa-user",
-    stringName: 'name'
+    stringName: "name",
   },
   {
     label: "Cognome",
-    input: "Calderoni",
     iconClassUser: "fa fa-user",
-    stringName: 'surname'
+    stringName: "surname",
   },
   {
     label: "Email",
-    input: "bryan.calderoni@gmail.com",
     iconClassUser: "fa fa-user",
-    stringName: 'email'
+    stringName: "email",
   },
   {
     label: "Indirizzo",
-    input: "Via delle Calcare Rocca di papa",
     iconClassUser: "fa fa-map",
-    stringName: 'address'
+    stringName: "address",
   },
 ];
 
